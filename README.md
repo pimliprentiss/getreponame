@@ -1,8 +1,7 @@
 # Get repository name as an output
 Github actions currently provides the 'github' context which returns the repository name as owner/repository thru the github.repository variable. This action strips the owner from that result.
 
-* Simple reference the action in your workflow
-* uses: pimliprentiss/getreponame
+* Simply reference the action in your workflow
 
 
 ## Inputs
