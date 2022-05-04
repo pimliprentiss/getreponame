@@ -1,0 +1,15 @@
+name: 'Get repository name'
+description: 'Returns repository name as an output, stripping away the owner'
+inputs:
+  repository:
+    description: 'Repository name in the form owner/reposioty'
+    required: true
+    default: ${{ github.repository }}
+outputs:
+  repository:
+    description: 'Name of the repository'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+  - ${{ inputs.repository }}
