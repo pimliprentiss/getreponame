@@ -8,8 +8,10 @@ inputs:
 outputs:
   repository:
     description: 'Name of the repository'
+    value: ${{ steps.set-repository.outputs.repository-name }}
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-  - ${{ inputs.repository }}
+  using: 'composite'
+  steps: 
+    - id: set-repository
+      run: echo "::set-output name=repository-name::$(awk -F "/" '{print $NF}' <<< ${{ inputs.repository }})"
+      shell: bash
